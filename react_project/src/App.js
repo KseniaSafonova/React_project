@@ -2,12 +2,9 @@ import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import Card from './components/Card/Card';
-import Term from './components/Card/Term';
 import Footer from './components/Footer/Footer';
-import Translation from './components/Card/Translation';
-import Transcription from './components/Card/Transcription';
 import './App.module.css';
-import Button from './components/Card/Button';
+//import Button from './components/Card/Button';
 
 
 const words = [
@@ -36,10 +33,8 @@ function App() {
           words.map((word) => <Card english={word.english} transcription={word.transcription} />)
         }
 
-        {/*   <Term />
-        <Transcription />
-        <Translation />*/}
-        <Button />
+
+
       </Main>
       <Footer />
     </div>
