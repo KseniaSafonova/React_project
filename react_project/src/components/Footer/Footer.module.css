@@ -1,0 +1,19 @@
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #353C3F;
+  height: 10vh;
+  color: #D5D6D2;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.element {
+  margin: 20px;
+}
+/*# sourceMappingURL=Footer.module.css.map */

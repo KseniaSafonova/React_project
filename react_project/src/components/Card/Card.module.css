@@ -1,0 +1,28 @@
+.element {
+  margin: 20px;
+  width: 30%;
+  height: 40vh;
+  background-color: #D5D6D2;
+  border-radius: 10px;
+  text-align: center;
+  padding-top: 15vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 30px;
+  text-decoration: none;
+  color: #756867;
+}
+
+.element:hover {
+  background-color: #FF8D3F;
+  color: #353C3F;
+  background-color: #FF8D3F;
+}
+
+.element:active {
+  background-color: #D5D6D2;
+  color: #FF8D3F;
+  border: 2px solid #FF8D3F;
+  border: 2px solid #FF8D3F;
+}
+/*# sourceMappingURL=Card.module.css.map */

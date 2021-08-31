@@ -1,0 +1,43 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border-bottom: 2px solid #756867;
+  height: 10vh;
+  color: #756867;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.element {
+  display: inline-block;
+  margin: 20px;
+}
+
+.leftBlock {
+  width: 40vw;
+}
+
+.rightBlock {
+  width: 30vw;
+}
+
+.quote {
+  display: inline-block;
+  margin-left: 10px;
+  font-style: italic;
+  font-weight: normal;
+  width: 20vw;
+}
+
+.logoSvg {
+  width: 10%;
+  padding-top: 5px;
+}
+/*# sourceMappingURL=Header.module.css.map */

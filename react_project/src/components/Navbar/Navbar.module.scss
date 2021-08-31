@@ -1,0 +1,44 @@
+//@import "/react-project/src/components/Colors_Fonts/Assets.module.scss";
+
+$lightGray: #D5D6D2;
+$darkGray: #353C3F;
+$brown: #756867;
+$orange: #FF8D3F;
+
+$fontS: 14px;
+$fontM: 20px;
+$fontL: 30px;
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    height: 20vh;
+    color: $brown;
+    font-weight: bolder;
+}
+    
+.button {
+    margin: 20px;
+    width: 20vw;
+    height: 10vh;
+    background-color: $lightGray;
+    border: 1px solid $lightGray;
+    color: $orange;
+    font-size: $fontM;
+    font-weight: bolder;
+    border-radius: 10px;
+    text-align: center;
+    padding: 2vh;
+    box-sizing: border-box;
+
+    &:hover {
+        color: $brown;
+        border: 2px solid $brown;
+    }
+
+    &:focus {
+        color: $orange;
+        border: 2px solid $orange;
+    }
+}

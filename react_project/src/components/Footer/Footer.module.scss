@@ -1,0 +1,22 @@
+$lightGray: #D5D6D2;
+$darkGray: #353C3F;
+$brown: #756867;
+$orange: #FF8D3F;
+
+$fontS: 14px;
+$fontM: 20px;
+$fontL: 30px;
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    background-color: $darkGray;
+    height: 10vh;
+    color: $lightGray;
+    font-weight: bolder;
+    font-size: $fontS;
+}
+    
+.element {
+    margin: 20px;
+}

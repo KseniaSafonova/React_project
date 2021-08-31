@@ -1,0 +1,41 @@
+$lightGray: #D5D6D2;
+$darkGray: #353C3F;
+$brown: #756867;
+$orange: #FF8D3F;
+
+$fontS: 14px;
+$fontM: 20px;
+$fontL: 30px;
+
+.element {
+    margin: 20px;
+    width: 30%;
+    height: 40vh;
+   background-color: $lightGray;
+    //background-color: #D5D6D2;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 15vh;
+    box-sizing: border-box;
+    font-size: $fontL;
+    text-decoration: none;
+    color: $brown;
+    //color: #756867;
+
+    &:hover {
+        background-color: $orange;
+        color: $darkGray;
+        background-color: #FF8D3F;
+       // color: #353C3F;
+    }
+
+    &:active {
+        background-color: $lightGray;
+        color: $orange;
+        border: 2px solid $orange;
+       // background-color: #D5D6D2;
+        //color: #353C3F;
+        border: 2px solid #FF8D3F;
+    }
+
+}
