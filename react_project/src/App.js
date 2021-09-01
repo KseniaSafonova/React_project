@@ -30,7 +30,7 @@ function App() {
       <Navbar />
       <Main >
         {
-          words.map((word) => <Card english={word.english} transcription={word.transcription}><Button /></Card>)
+          words.map((word) => <Card english={word.english} transcription={word.transcription}><Button russian={word.russian} /></Card>)
         }
 
 

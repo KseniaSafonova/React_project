@@ -3,9 +3,9 @@ $darkGray: #353C3F;
 $brown: #756867;
 $orange: #FF8D3F;
 
-$fontS: 14px;
+$fontS: 16px;
 $fontM: 20px;
-$fontL: 30px;
+$fontL: 28px;
 
 .element {
     margin: 20px;
@@ -15,7 +15,7 @@ $fontL: 30px;
     //background-color: #D5D6D2;
     border-radius: 10px;
     text-align: center;
-    padding-top: 15vh;
+    padding-top: 10vh;
     box-sizing: border-box;
     font-size: $fontL;
     text-decoration: none;
@@ -23,9 +23,8 @@ $fontL: 30px;
     //color: #756867;
 
     &:hover {
-        background-color: $orange;
+        border: 2px solid $orange;
         color: $darkGray;
-        background-color: #FF8D3F;
        // color: #353C3F;
     }
 

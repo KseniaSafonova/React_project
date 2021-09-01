@@ -1,0 +1,28 @@
+$lightGray: #D5D6D2;
+$darkGray: #353C3F;
+$brown: #756867;
+$orange: #FF8D3F;
+
+$fontS: 16px;
+$fontM: 20px;
+$fontL: 28px;
+
+.button {
+    background-color: $lightGray;
+    border: 2px solid $brown;
+    height: 40px;
+    color: $orange;
+    font-size: $fontM;
+    font-weight: bolder;
+    border-radius: 10px;
+    margin-top: 20px;
+
+    &:hover {
+        color: $brown;
+        
+    }
+}
+
+.element {
+    margin-top: 20px;
+}

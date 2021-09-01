@@ -1,0 +1,19 @@
+.button {
+  background-color: #D5D6D2;
+  border: 2px solid #756867;
+  height: 40px;
+  color: #FF8D3F;
+  font-size: 20px;
+  font-weight: bolder;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.button:hover {
+  color: #756867;
+}
+
+.element {
+  margin-top: 20px;
+}
+/*# sourceMappingURL=Button.module.css.map */

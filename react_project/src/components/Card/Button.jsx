@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from './Button.module.css'
 
 function Button(props) {
   const [pressed, setPressed] = useState(false);
@@ -8,14 +9,14 @@ function Button(props) {
   }
 
   return (
-    <button onClick={handChange}>
+    <div>
       {
         pressed
-          ? ("Перевод")
-          : "Посмотреть перевод!"
+          ? <div className={styles.element}>{props.russian}</div>
+          : (<button className={styles.button} onClick={handChange}>Посмотреть перевод</button>)
       }
-    </button>
 
+    </div>
   )
 }
 
