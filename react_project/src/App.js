@@ -4,7 +4,7 @@ import Main from './components/Main/Main';
 import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
 import './App.module.css';
-//import Button from './components/Card/Button';
+import Button from './components/Card/Button';
 
 
 const words = [
@@ -30,12 +30,13 @@ function App() {
       <Navbar />
       <Main >
         {
-          words.map((word) => <Card english={word.english} transcription={word.transcription} />)
+          words.map((word) => <Card english={word.english} transcription={word.transcription}><Button /></Card>)
         }
 
 
 
       </Main>
+
       <Footer />
     </div>
   );
