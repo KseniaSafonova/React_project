@@ -8,7 +8,7 @@ function Button(props) {
     <div>
       {
         pressed
-          ? <div className={styles.element} onBlur={() => { setPressed(false) }} >{props.russian}</div>
+          ? <div tabIndex={0} className={styles.element} onClick={() => { setPressed(false) }} >{props.russian}</div>
           : <button className={styles.button} onClick={() => { setPressed(true) }}>Показать перевод</button>
       }
     </div>
