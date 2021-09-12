@@ -5,6 +5,7 @@ import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
 import './App.module.css';
 import Button from './components/Card/Button';
+import { Table } from 'react-bootstrap';
 
 
 const words = [
@@ -29,13 +30,11 @@ function App() {
       <Header />
       <Navbar />
       <Main >
-        {
+        {/*      {
           words.map((word) => <Card english={word.english} transcription={word.transcription}><Button russian={word.russian} /></Card>)
-        }
-
-
-
+        }*/}
       </Main>
+      <Table />
 
       <Footer />
     </div>
