@@ -1,6 +1,4 @@
-import Card from '../Card/Card';
-import Button from '../Card/Button';
-import styles from './Main.module.css'
+import TableString from "./TableString";
 
 const words = [
     { "id": "4", "english": "butterfly", "transcription": "[ ˈbʌtəflaɪ ]", "russian": "бабочка", "tags": "животные", "tags_json": "[\"животные\"]" },
@@ -18,18 +16,16 @@ const words = [
     { "id": "16", "english": "street", "transcription": "[ striːt ]", "russian": "улица", "tags": "город", "tags_json": "[]" }
 ]
 
-
-function Main(props) {
-
+function Tbody(word) {
     return (
-        <div className={styles.main}>
-            {/*  {props.children}*/}
+        <tbody>
             {
-                words.map((word) => <Card english={word.english} transcription={word.transcription}><Button russian={word.russian} /></Card>)
+                words.map((word) =>
+                    <TableString id={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} />)
             }
 
-        </div >
-    )
+        </tbody>
+    );
 }
 
-export default Main;
+export default Tbody;
