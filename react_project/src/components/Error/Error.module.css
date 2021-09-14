@@ -1,0 +1,11 @@
+.error {
+  color: #FF8D3F;
+  text-align: center;
+  font-size: 28px;
+  height: 60vh;
+}
+
+.errorSvg {
+  width: 10%;
+}
+/*# sourceMappingURL=Error.module.css.map */

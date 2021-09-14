@@ -5,7 +5,8 @@ function Header(props) {
     return (
         <div className={styles.header}>
             <div className={styles.leftBlock}>
-                <img src={image} className={styles.logoSvg} />
+                {props.children}
+                {/*   <img src={image} className={styles.logoSvg} />*/}
                 <div className={styles.quote}>"With languages, you are at home anywhere"</div>
             </div>
             <div className={styles.rightBlock}>

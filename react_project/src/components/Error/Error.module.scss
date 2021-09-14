@@ -1,0 +1,19 @@
+$lightGray: #D5D6D2;
+$darkGray: #353C3F;
+$brown: #756867;
+$orange: #FF8D3F;
+
+$fontS: 16px;
+$fontM: 20px;
+$fontL: 28px;
+
+.error {
+color: $orange;
+text-align: center;
+font-size: $fontL;
+height: 60vh;
+}
+
+.errorSvg {
+    width:10%;
+}
