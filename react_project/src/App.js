@@ -3,6 +3,7 @@ import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
+import Contacts from './components/Contacts/Contacts';
 import './App.module.css';
 import Button from './components/Card/Button';
 import { Table } from 'react-bootstrap';
@@ -35,9 +36,6 @@ function App() {
           <Link className={styles.button} to='/game'>Cards</Link>
           <Link className={styles.button} to='/contacts'>Contacts</Link>
         </Navbar>
-
-
-
         <Switch>
           <Route path='/home'>
             <Table striped bordered hover>
@@ -47,6 +45,9 @@ function App() {
           </Route>
           <Route path='/game'>
             <Main />
+          </Route>
+          <Route path='/contacts'>
+            <Contacts />
           </Route>
           <Route>
             <Error />

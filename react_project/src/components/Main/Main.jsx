@@ -25,7 +25,11 @@ function Main(props) {
         <div className={styles.main}>
             {/*  {props.children}*/}
             {
-                words.map((word) => <Card english={word.english} transcription={word.transcription}><Button russian={word.russian} /></Card>)
+                words.map((word) => <Card
+                    english={word.english}
+                    transcription={word.transcription}>
+                    <Button russian={word.russian} />
+                </Card>)
             }
 
         </div >
