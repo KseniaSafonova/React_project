@@ -1,5 +1,9 @@
+import { propTypes } from 'react-bootstrap/esm/Image';
+import Card from '../Card/Card';
+import Button from '../Card/Button';
+import styles from './CardShell.module.css'
+import React from 'react';
 
-import styles from './Card.module.css'
 
 const words = [
     { "id": "1", "english": "butterfly", "transcription": "[ ˈbʌtəflaɪ ]", "russian": "бабочка", "tags": "животные", "tags_json": "[\"животные\"]" },
@@ -17,14 +21,17 @@ const words = [
     { "id": "13", "english": "street", "transcription": "[ striːt ]", "russian": "улица", "tags": "город", "tags_json": "[]" }
 ]
 
-function Card(props) {
+const CardShell = ({ number, wordsLenght, showNext, showPrevious, data }) => {
     return (
-        <div className={styles.element}>
-            <div>{props.english}</div>
-            <div>{props.transcription}</div>
-            {props.children}
-        </div >
+        <React.Fragment>
+            <div className={styles.block}>
+                <button className={styles.button} onClick={showPrevious}>Back</button>
+                <Card styles={styles.element} english={data[number].english} transcription={data[number].transcription}><Button russian={data[number].russian} /></Card>
+                <button className={styles.button} onClick={showNext}>Forward</button>
+            </div>
+            <div className={styles.count}>{number} / {wordsLenght}</div>
+        </React.Fragment>
     )
 }
 
-export default Card;
+export default CardShell;

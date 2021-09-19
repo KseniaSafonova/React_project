@@ -1,0 +1,77 @@
+$lightGray: #D5D6D2;
+$darkGray: #353C3F;
+$brown: #756867;
+$orange: #FF8D3F;
+
+$fontS: 16px;
+$fontM: 20px;
+$fontL: 28px;
+
+
+.block {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+}
+
+.element {
+    margin: 20px;
+    width: 30%;
+    height: 50vh;
+   background-color: $lightGray;
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 20vh;
+    box-sizing: border-box;
+    font-size: $fontL;
+    text-decoration: none;
+    color: $brown;
+
+    &:hover {
+        border: 2px solid $orange;
+        color: $darkGray;
+    }
+
+    &:active {
+        background-color: $lightGray;
+        color: $orange;
+        border: 2px solid $orange;
+        border: 2px solid #FF8D3F;
+    }
+}
+
+.button {
+    margin: 20px;
+    width: 20vw;
+    height: 10vh;
+    background-color: $lightGray;
+    border: 1px solid $lightGray;
+    color: $orange;
+    font-size: $fontM;
+    font-weight: bolder;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    padding: 2vh;
+    box-sizing: border-box;
+    margin-top:10%;
+
+    &:hover {
+        color: $brown;
+        border: 2px solid $brown;
+    }
+
+    &:focus {
+        color: $orange;
+        border: 2px solid $orange;
+    }
+}
+
+.count {
+    height: 40px;
+    width: 100px;
+    text-align: center;
+    margin:auto;
+    padding:10px;
+}

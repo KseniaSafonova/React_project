@@ -2,8 +2,8 @@
     "version": 3,
     "mappings": "AASA,AAAA,QAAQ,CAAC;EACT,KAAK,EAPI,OAAO;EAQhB,UAAU,EAAE,MAAM;EAClB,SAAS,EALD,IAAI;EAMZ,MAAM,EAAE,IAAI;CACX",
     "sources": [
-        "Contacts.mpdule.scss"
+        "Contacts.module.scss"
     ],
     "names": [],
-    "file": "Contacts.mpdule.css"
+    "file": "Contacts.module.css"
 }
