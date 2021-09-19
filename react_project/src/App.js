@@ -1,9 +1,7 @@
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
-import Card from './components/Card/Card';
 import Footer from './components/Footer/Footer';
-import Contacts from './components/Contacts/Contacts';
 import './App.module.css';
 import Button from './components/Card/Button';
 import { Table } from 'react-bootstrap';

@@ -1,8 +1,6 @@
 import { useState } from "react";
 import styles from '../Main/Main.module.css';
-import { words } from "../../App";
 import CardShell from "./CardShell";
-
 
 
 function Game({ data }) {
@@ -15,13 +13,18 @@ function Game({ data }) {
     };
 
     const showNext = () => {
-        // + нужна проверка на position >= data.length
-        setPosition(position + 1);
+        if (position >= data.lenght) {
+            setPosition(position == 0);
+        }
+        else {
+            setPosition(position + 1);
+        }
     };
+
     return (
         <div className={styles.main}>
-
-            <CardShell ShowPrevious={showPrevious}
+            <CardShell
+                ShowPrevious={showPrevious}
                 ShowNext={showNext}
                 number={position + 1}
                 data={data}
