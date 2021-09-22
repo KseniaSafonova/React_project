@@ -46,22 +46,23 @@ function App(props) {
           <Link to='/home'><img src={image} className={style.logoSvg} /></Link>
         </Header>
         <Navbar>
-          <Link className={styles.button} to='/home'>Home Page</Link>
+          <Link className={styles.button} to='/'>Home Page</Link>
           <Link className={styles.button} to='/cards'>Cards</Link>
           <Link className={styles.button} to='/game'>Game</Link>
         </Navbar>
         <Switch>
-          <Route path='/home'>
-            <Table striped bordered hover>
-              <Thead />
-              <Tbody />
-            </Table>
-          </Route>
+
           <Route path='/cards'>
             <Main />
           </Route>
           <Route path='/game'>
             <Game data={words} />
+          </Route>
+          <Route path='/'>
+            <Table striped bordered hover>
+              <Thead />
+              <Tbody />
+            </Table>
           </Route>
           <Route>
             <Error />

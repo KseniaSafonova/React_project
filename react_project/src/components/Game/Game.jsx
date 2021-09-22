@@ -13,7 +13,7 @@ function Game({ data }) {
     };
 
     const showNext = () => {
-        if (position >= data.lenght) {
+        if (position > data.lenght) {
             setPosition(position == 0);
         }
         else {
@@ -24,8 +24,8 @@ function Game({ data }) {
     return (
         <div className={styles.main}>
             <CardShell
-                ShowPrevious={showPrevious}
-                ShowNext={showNext}
+                showPrevious={showPrevious}
+                showNext={showNext}
                 number={position + 1}
                 data={data}
                 dataLength={data.length} />
