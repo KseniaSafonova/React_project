@@ -3,13 +3,9 @@ import styles from '../Main/Main.module.css';
 import CardShell from "./CardShell";
 
 
-function Game({ data }) {
+function Game({ data, numberChange }) {
     const [position, setPosition] = useState(0);
-    const { wordCount, countChange } = useState(0);
 
-    const handleChange = () => {
-        countChange(wordCount + 1);
-    }
 
 
     const showPrevious = () => {
@@ -29,14 +25,13 @@ function Game({ data }) {
 
     return (
         <div className={styles.main}>
-            <div>Изучено {wordCount} слов</div>
             <CardShell
                 showPrevious={showPrevious}
                 showNext={showNext}
                 number={position + 1}
                 data={data}
                 dataLength={data.length}
-                numberChange={handleChange} />
+                numberChange={numberChange} />
         </div >
     )
 }
