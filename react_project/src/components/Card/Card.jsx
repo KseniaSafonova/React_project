@@ -18,6 +18,7 @@ const words = [
 ]
 
 function Card(props) {
+
     return (
         <div className={styles.element}>
             <div>{props.english}</div>

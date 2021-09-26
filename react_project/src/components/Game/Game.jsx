@@ -5,6 +5,12 @@ import CardShell from "./CardShell";
 
 function Game({ data }) {
     const [position, setPosition] = useState(0);
+    const { wordCount, countChange } = useState(0);
+
+    const handleChange = () => {
+        countChange(wordCount + 1);
+    }
+
 
     const showPrevious = () => {
         if (position > 0) {
@@ -23,12 +29,14 @@ function Game({ data }) {
 
     return (
         <div className={styles.main}>
+            <div>Изучено {wordCount} слов</div>
             <CardShell
                 showPrevious={showPrevious}
                 showNext={showNext}
                 number={position + 1}
                 data={data}
-                dataLength={data.length} />
+                dataLength={data.length}
+                numberChange={handleChange} />
         </div >
     )
 }
