@@ -5,22 +5,18 @@ import styles from './CardShell.module.css'
 import React, { useState } from 'react';
 
 
-const CardShell = ({ showNext, showPrevious, number, data, dataLength }) => {
-    const { wordCount, countChange } = useState(0);
+const CardShell = ({ wordCount, numberChange, showNext, showPrevious, number, data, dataLength }) => {
 
-    const numberChange = () => {
-        countChange(wordCount + 1);
-    }
     return (
         <React.Fragment>
-            <div className={styles.count}>Изучено ... {wordCount} слов</div>
+            <div className={styles.count}>Изучено {wordCount} слов</div>
             <div className={styles.block}>
                 <button className={styles.button} onClick={showPrevious}>Back</button>
                 <Card
                     styles={styles.element}
                     english={data[number].english}
                     transcription={data[number].transcription} >
-                    <Button russian={data[number].russian} onClick={numberChange} />
+                    <Button russian={data[number].russian} numberChange={numberChange} />
                 </Card >
                 <button className={styles.button} onClick={showNext}>Forward</button>
             </div>

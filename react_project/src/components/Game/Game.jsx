@@ -3,10 +3,13 @@ import styles from '../Main/Main.module.css';
 import CardShell from "./CardShell";
 
 
-function Game({ data, numberChange }) {
+function Game({ data }) {
     const [position, setPosition] = useState(0);
+    const [wordCount, countChange] = useState(0);
 
-
+    const numberChange = () => {
+        countChange(wordCount + 1);
+    }
 
     const showPrevious = () => {
         if (position > 0) {
@@ -31,6 +34,7 @@ function Game({ data, numberChange }) {
                 number={position + 1}
                 data={data}
                 dataLength={data.length}
+                wordCount={wordCount}
                 numberChange={numberChange} />
         </div >
     )

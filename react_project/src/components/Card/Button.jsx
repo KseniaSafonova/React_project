@@ -4,12 +4,17 @@ import styles from './Button.module.css'
 
 function Button(props) {
   const [pressed, setPressed] = useState(false);
+  const checkTranslation = () => {
+    setPressed(true)
+    props.numberChange();
+  }
+
   return (
     <div>
       {
         pressed
           ? <div tabIndex={0} className={styles.element} onClick={() => { setPressed(false) }} >{props.russian}</div>
-          : <button className={styles.button} onClick={() => { setPressed(true) }}>Показать перевод</button>
+          : <button className={styles.button} onClick={checkTranslation}>Показать перевод</button>
       }
     </div>
   )
