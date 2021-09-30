@@ -1,5 +1,6 @@
-import styles from './../../App.module.css';
+import styles from './Table.module.css';
 import { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 function TableString(word) {
     const [isSelected, changeSelected] = useState(false);
@@ -41,8 +42,11 @@ function TableString(word) {
             <td>
                 {
                     isSelected
-                        ? <p><button className={styles.saveButton} onClick={() => { changeSelected(false) }}>Save</button>     <button className={styles.cancelButton} onClick={handleCancel}>Cancel</button></p>
-                        : <button className={styles.editButton} onClick={() => { changeSelected(true) }}>Edit</button>
+                        ? <p>
+                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}> Save</Button>
+                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
+                        </p>
+                        : <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
                 }
 
             </td >

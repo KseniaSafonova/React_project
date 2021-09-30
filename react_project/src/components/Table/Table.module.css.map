@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,YAAY,EAAE,IAAI;CACnB",
+    "sources": [
+        "Table.module.scss"
+    ],
+    "names": [],
+    "file": "Table.module.css"
+}

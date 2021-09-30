@@ -67,9 +67,10 @@
 
 .count {
   height: 40px;
-  width: 100px;
+  width: 200px;
   text-align: center;
   margin: auto;
   padding: 10px;
+  color: #353C3F;
 }
 /*# sourceMappingURL=CardShell.module.css.map */
