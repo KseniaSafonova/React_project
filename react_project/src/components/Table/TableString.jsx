@@ -10,11 +10,20 @@ function TableString(word) {
     const [valueRus, changeValueRus] = useState(word.russian);
     const [valueTag, changeValueTag] = useState(word.tags);
 
+    /*const [value, changeValue] = useState({
+        english: word.english,
+        transcription: word.transcription,
+        russian: word.russian,
+        tag: word.tag
+    });*/
+
     const handleCancel = (word) => {
         return (
             changeSelected(!isSelected)
         )
     }
+
+
     return (
         <tr>
             <td>{word.id}</td>
