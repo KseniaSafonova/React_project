@@ -3,11 +3,9 @@ import Navbar from './components/Navbar/Navbar';
 import Main from './components/Main/Main';
 import Footer from './components/Footer/Footer';
 import './App.module.css';
-import Button from './components/Card/Button';
 import { Table } from 'react-bootstrap';
-import Thead from './components/Table/Thead';
-import TableString from './components/Table/TableString';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Thead from './components/Table/Thead';
 import Tbody from './components/Table/Tbody';
 import styles from './components/Navbar/Navbar.module.css'
 import style from './components/Header/Header.module.css'
@@ -20,6 +18,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+
 
 export const words = [
   { "id": "1", "english": "butterfly", "transcription": "[ ˈbʌtəflaɪ ]", "russian": "бабочка", "tags": "животные", "tags_json": "[\"животные\"]" },
@@ -61,7 +60,7 @@ function App(props) {
           <Route path='/'>
             <Table striped bordered hover>
               <Thead />
-              <Tbody />
+              <Tbody words={words} />
             </Table>
           </Route>
           <Route>
