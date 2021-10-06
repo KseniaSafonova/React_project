@@ -50,7 +50,6 @@ function App(props) {
           <Link className={styles.button} to='/game'>Game</Link>
         </Navbar>
         <Switch>
-
           <Route path='/cards'>
             <Main />
           </Route>
