@@ -18,6 +18,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import React from 'react';
 
 
 export const words = [
@@ -36,39 +37,43 @@ export const words = [
   { "id": "13", "english": "street", "transcription": "[ striːt ]", "russian": "улица", "tags": "город", "tags_json": "[]" }
 ]
 
+const Words = React.createContext('words');
+
 function App(props) {
   return (
-    <BrowserRouter>
-      <div className="App">
+    <Words.Provider value={'words'}>
+      <BrowserRouter>
+        <div className="App">
 
-        <Header >
-          <Link to='/home'><img src={image} className={style.logoSvg} /></Link>
-        </Header>
-        <Navbar>
-          <Link className={styles.button} to='/'>Home Page</Link>
-          <Link className={styles.button} to='/cards'>Cards</Link>
-          <Link className={styles.button} to='/game'>Game</Link>
-        </Navbar>
-        <Switch>
-          <Route path='/cards'>
-            <Main />
-          </Route>
-          <Route path='/game'>
-            <Game data={words} />
-          </Route>
-          <Route path='/'>
-            <Table striped bordered hover>
-              <Thead />
-              <Tbody words={words} />
-            </Table>
-          </Route>
-          <Route>
-            <Error />
-          </Route>
-        </Switch>
-        <Footer />
-      </div >
-    </BrowserRouter>
+          <Header >
+            <Link to='/home'><img src={image} className={style.logoSvg} /></Link>
+          </Header>
+          <Navbar>
+            <Link className={styles.button} to='/'>Home Page</Link>
+            <Link className={styles.button} to='/cards'>Cards</Link>
+            <Link className={styles.button} to='/game'>Game</Link>
+          </Navbar>
+          <Switch>
+            <Route path='/cards'>
+              <Main />
+            </Route>
+            <Route path='/game'>
+              <Game data={words} />
+            </Route>
+            <Route path='/'>
+              <Table striped bordered hover>
+                <Thead />
+                <Tbody words={words} />
+              </Table>
+            </Route>
+            <Route>
+              <Error />
+            </Route>
+          </Switch>
+          <Footer />
+        </div >
+      </BrowserRouter>
+    </Words.Provider>
   );
 }
 
