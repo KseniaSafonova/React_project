@@ -8,12 +8,23 @@
           flex-direction: row;
   background-color: #353C3F;
   height: 20vh;
-  color: #D5D6D2;
+  color: #FF8D3F;
   font-weight: bolder;
   font-size: 16px;
 }
 
 .element {
   margin: 20px;
+  width: 10%;
+}
+
+.logoSvg {
+  width: 60%;
+  padding-top: 5px;
+}
+
+.png {
+  width: 30%;
+  margin: 10px;
 }
 /*# sourceMappingURL=Footer.module.css.map */

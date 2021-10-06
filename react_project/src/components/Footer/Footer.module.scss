@@ -12,11 +12,22 @@ $fontL: 28px;
     flex-direction: row;
     background-color: $darkGray;
     height: 20vh;
-    color: $lightGray;
+    color: $orange;
     font-weight: bolder;
     font-size: $fontS;
 }
     
 .element {
     margin: 20px;
+    width: 10%;
+}
+
+.logoSvg {
+    width:60%;
+    padding-top: 5px;
+}
+
+.png {
+    width: 30%;
+    margin: 10px;
 }

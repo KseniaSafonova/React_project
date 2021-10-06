@@ -6,12 +6,13 @@ import './App.module.css';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Thead from './components/Table/Thead';
-import Tbody from './components/Table/Tbody';
+//import Tbody from './components/Table/Tbody';
 import styles from './components/Navbar/Navbar.module.css'
 import style from './components/Header/Header.module.css'
 import image from './components/Header/logo.svg'
 import Error from './components/Error/Error';
 import Game from './components/Game/Game';
+import Words from './components/Table/Words';
 import {
   BrowserRouter,
   Switch,
@@ -21,32 +22,15 @@ import {
 import React from 'react';
 
 
-export const words = [
-  { "id": "1", "english": "butterfly", "transcription": "[ ˈbʌtəflaɪ ]", "russian": "бабочка", "tags": "животные", "tags_json": "[\"животные\"]" },
-  { "id": "2", "english": "hedgehog", "transcription": "[ ˈhedʒhɒɡ ]", "russian": "ёж", "tags": "животные", "tags_json": "[\"животные\"]" },
-  { "id": "3", "english": "library", "transcription": "[ ˈlaɪbrəri ]", "russian": "библиотека", "tags": "город", "tags_json": "[\"город\"]" },
-  { "id": "4", "english": "lost property office", "transcription": "[ lɒst ˈprɒpəti ˈɒfɪs ]", "russian": "бюро находок", "tags": "город", "tags_json": "[\"город\"]" },
-  { "id": "5", "english": "gallery", "transcription": "[ ˈɡæləri ]", "russian": "галерея", "tags": "город, путешествия", "tags_json": "[\"город\", \"путешествия\"]" },
-  { "id": "6", "english": "traffic", "transcription": "[ ˈtræfɪk ]", "russian": "движение", "tags": "город", "tags_json": "[\"город\"]" },
-  { "id": "7", "english": "cinema", "transcription": "[ ˈsɪnəmə ]", "russian": "кино", "tags": "город", "tags_json": "[\"город\"]" },
-  { "id": "8", "english": "accompany", "transcription": "[ tuː əˈkʌmpəni ]", "russian": "аккомпанировать", "tags": "музыка", "tags_json": "[\"музыка\"]" },
-  { "id": "9", "english": "bagpipe", "transcription": "[ ˈbægpaɪp ]", "russian": "волынка", "tags": "музыка", "tags_json": "[\"музыка\"]" },
-  { "id": "10", "english": "balalaika", "transcription": "[ ˌbæləˈlaɪkə ]", "russian": "балалайка", "tags": "музыка, культура", "tags_json": "[\"музыка\", \"культура\"]" },
-  { "id": "11", "english": "bassoon", "transcription": "[ bə'suːn ]", "russian": "фагот", "tags": "музыка", "tags_json": "[\"музыка\"]" },
-  { "id": "12", "english": "book", "transcription": "[ bʊk ]", "russian": "книга", "tags": "культура", "tags_json": "[]" },
-  { "id": "13", "english": "street", "transcription": "[ striːt ]", "russian": "улица", "tags": "город", "tags_json": "[]" }
-]
 
-const Words = React.createContext('words');
-
-function App(props) {
+/*function App(props) {
   return (
-    <Words.Provider value={'words'}>
+    <Page.Provider value={'words'}>
       <BrowserRouter>
         <div className="App">
 
           <Header >
-            <Link to='/home'><img src={image} className={style.logoSvg} /></Link>
+            <Link to='/'><img src={image} className={style.logoSvg} /></Link>
           </Header>
           <Navbar>
             <Link className={styles.button} to='/'>Home Page</Link>
@@ -58,12 +42,12 @@ function App(props) {
               <Main />
             </Route>
             <Route path='/game'>
-              <Game data={words} />
+              <Game data={props.words} />
             </Route>
             <Route path='/'>
               <Table striped bordered hover>
                 <Thead />
-                <Tbody words={words} />
+                <Words />
               </Table>
             </Route>
             <Route>
@@ -73,9 +57,61 @@ function App(props) {
           <Footer />
         </div >
       </BrowserRouter>
-    </Words.Provider>
+    </Page.Provider>
   );
+}*/
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      words: []
+    }
+  }
+
+  componentDidMount() {
+    fetch('/api/words')
+      .then((response) => response.json())
+      .then((response) => this.setState({ words: response }))
+  }
+  render() {
+    const { words } = this.state
+
+    return (
+      <BrowserRouter>
+        <div className="App">
+          <Header >
+            <Link to='/'><img src={image} className={style.logoSvg} /></Link>
+          </Header>
+          <Navbar>
+            <Link className={styles.button} to='/'>Home Page</Link>
+            <Link className={styles.button} to='/cards'>Cards</Link>
+            <Link className={styles.button} to='/game'>Game</Link>
+          </Navbar>
+          <Switch>
+            <Route path='/cards'>
+              {/* <Main />*/}
+            </Route>
+            <Route path='/game'>
+              <Game data={words} />
+            </Route>
+            <Route path='/'>
+              <Table striped bordered hover>
+                <Thead />
+                <Words />
+              </Table>
+            </Route>
+            <Route>
+              <Error />
+            </Route>
+          </Switch>
+          <Footer />
+        </div >
+      </BrowserRouter>
+    )
+  }
 }
+
 
 export default App;
 

@@ -4,9 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+const ThemeContext = React.createContext('words');
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ThemeContext.Provider value={'words'}>
+      <App />
+    </ThemeContext.Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
