@@ -5,14 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
-const ThemeContext = React.createContext('words');
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeContext.Provider value={'words'}>
-      <App />
-    </ThemeContext.Provider>
-  </React.StrictMode>,
+    <App />
+  </React.StrictMode >,
   document.getElementById('root')
 );
 

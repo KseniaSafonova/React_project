@@ -6,13 +6,12 @@ import './App.module.css';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Thead from './components/Table/Thead';
-//import Tbody from './components/Table/Tbody';
+import Tbody from './components/Table/Tbody';
 import styles from './components/Navbar/Navbar.module.css'
 import style from './components/Header/Header.module.css'
 import image from './components/Header/logo.svg'
 import Error from './components/Error/Error';
 import Game from './components/Game/Game';
-import Words from './components/Table/Words';
 import {
   BrowserRouter,
   Switch,
@@ -21,45 +20,7 @@ import {
 } from "react-router-dom";
 import React from 'react';
 
-
-
-/*function App(props) {
-  return (
-    <Page.Provider value={'words'}>
-      <BrowserRouter>
-        <div className="App">
-
-          <Header >
-            <Link to='/'><img src={image} className={style.logoSvg} /></Link>
-          </Header>
-          <Navbar>
-            <Link className={styles.button} to='/'>Home Page</Link>
-            <Link className={styles.button} to='/cards'>Cards</Link>
-            <Link className={styles.button} to='/game'>Game</Link>
-          </Navbar>
-          <Switch>
-            <Route path='/cards'>
-              <Main />
-            </Route>
-            <Route path='/game'>
-              <Game data={props.words} />
-            </Route>
-            <Route path='/'>
-              <Table striped bordered hover>
-                <Thead />
-                <Words />
-              </Table>
-            </Route>
-            <Route>
-              <Error />
-            </Route>
-          </Switch>
-          <Footer />
-        </div >
-      </BrowserRouter>
-    </Page.Provider>
-  );
-}*/
+const ThemeContext = React.createContext();
 
 class App extends React.Component {
   constructor(props) {
@@ -78,41 +39,42 @@ class App extends React.Component {
     const { words } = this.state
 
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Header >
-            <Link to='/'><img src={image} className={style.logoSvg} /></Link>
-          </Header>
-          <Navbar>
-            <Link className={styles.button} to='/'>Home Page</Link>
-            <Link className={styles.button} to='/cards'>Cards</Link>
-            <Link className={styles.button} to='/game'>Game</Link>
-          </Navbar>
-          <Switch>
-            <Route path='/cards'>
-              {/* <Main />*/}
-            </Route>
-            <Route path='/game'>
-              <Game data={words} />
-            </Route>
-            <Route path='/'>
-              <Table striped bordered hover>
-                <Thead />
-                <Words />
-              </Table>
-            </Route>
-            <Route>
-              <Error />
-            </Route>
-          </Switch>
-          <Footer />
-        </div >
-      </BrowserRouter>
+      <ThemeContext.Provider value={words}>
+        <BrowserRouter>
+          <div className="App">
+            <Header >
+              <Link to='/'><img src={image} className={style.logoSvg} /></Link>
+            </Header>
+            <Navbar>
+              <Link className={styles.button} to='/'>Home Page</Link>
+              <Link className={styles.button} to='/cards'>Cards</Link>
+              <Link className={styles.button} to='/game'>Game</Link>
+            </Navbar>
+            <Switch>
+              <Route path='/cards'>
+                {/* <Main />*/}
+              </Route>
+              <Route path='/game'>
+                <Game data={words} />
+              </Route>
+              <Route path='/'>
+                <Table striped bordered hover>
+                  <Thead />
+                  <Tbody />
+                </Table>
+              </Route>
+              <Route>
+                <Error />
+              </Route>
+            </Switch>
+            <Footer />
+          </div >
+        </BrowserRouter>
+      </ThemeContext.Provider>
     )
   }
 }
 
 
 export default App;
-
 
