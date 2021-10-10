@@ -12,6 +12,7 @@ import style from './components/Header/Header.module.css'
 import image from './components/Header/logo.svg'
 import Error from './components/Error/Error';
 import Game from './components/Game/Game';
+import Context from './Context'
 import {
   BrowserRouter,
   Switch,
@@ -19,8 +20,7 @@ import {
   Link
 } from "react-router-dom";
 import React from 'react';
-
-const ThemeContext = React.createContext();
+import Words from './components/Table/Words';
 
 class App extends React.Component {
   constructor(props) {
@@ -35,11 +35,17 @@ class App extends React.Component {
       .then((response) => response.json())
       .then((response) => this.setState({ words: response }))
   }
+
   render() {
     const { words } = this.state
+    const { isLoading } = this.state
+
+    if (isLoading) {
+      return <p>...</p>
+    }
 
     return (
-      <ThemeContext.Provider value={words}>
+      <Context.Provider value={this.state}>
         <BrowserRouter>
           <div className="App">
             <Header >
@@ -52,7 +58,7 @@ class App extends React.Component {
             </Navbar>
             <Switch>
               <Route path='/cards'>
-                {/* <Main />*/}
+                <Main />
               </Route>
               <Route path='/game'>
                 <Game data={words} />
@@ -70,7 +76,7 @@ class App extends React.Component {
             <Footer />
           </div >
         </BrowserRouter>
-      </ThemeContext.Provider>
+      </Context.Provider>
     )
   }
 }

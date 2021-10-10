@@ -1,41 +1,33 @@
 import TableString from "./TableString";
-import React from "react";
-import ThemeContext from './../../App'
+import React, { useContext } from "react";
+import Context from './../../Context'
 
 
-/*function Tbody(props) {
-    const { words } = this.state
+const Tbody = () => {
+
+    //const value = useContext(Context);
+    //console.log(value)
+
     return (
-        <ThemeContext.Consumer>
+        <Context.Consumer>
             {value =>
-                <tbody>
+                < tbody >
                     {
                         words.map((word) =>
-                            <TableString id={word.id} english={word.english} transcription={word.transcription} russian={word.russian} tags={word.tags} />)
+                            <TableString
+                                id={word.id}
+                                english={word.english}
+                                transcription={word.transcription}
+                                russian={word.russian}
+                                tags={word.tags} />)
                     }
-                </tbody>}
-        </ThemeContext.Consumer>
-    );
-}*/
+                </tbody >
+            }
+        </Context.Consumer>
 
-class Tbody extends React.Component {
 
-    render() {
-
-        return (
-            <ThemeContext.Consumer>
-                {({ value }) => <tbody> {
-                    words.map((word) =>
-                        <TableString
-                            id={word.id}
-                            english={word.english}
-                            transcription={word.transcription}
-                            russian={word.russian}
-                            tags={word.tags} />)}
-                </tbody>}
-
-            </ThemeContext.Consumer>
-        )
-    }
+    )
 }
+
+
 export default Tbody;
