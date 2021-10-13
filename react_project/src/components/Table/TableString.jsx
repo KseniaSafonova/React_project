@@ -57,10 +57,13 @@ function TableString(word) {
                 {
                     isSelected
                         ? <p>
-                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}> Save</Button>
+                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
                             <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
                         </p>
-                        : <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
+                        : <p>
+                            <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
+                            <Button variant="danger" className={styles.button}>Delete</Button>
+                        </p>
                 }
 
             </td >

@@ -26,14 +26,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      words: []
+      words: [],
+      isLoading: false
     }
   }
 
   componentDidMount() {
+    this.setState({ isLoading: true })
+
     fetch('/api/words')
       .then((response) => response.json())
-      .then((response) => this.setState({ words: response }))
+      .then((response) => this.setState({ words: response, isLoading: false }))
   }
 
   render() {
@@ -41,7 +44,7 @@ class App extends React.Component {
     const { isLoading } = this.state
 
     if (isLoading) {
-      return <p>...</p>
+      return <p>Loading...</p>
     }
 
     return (
