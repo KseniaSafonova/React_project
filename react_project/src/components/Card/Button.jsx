@@ -6,7 +6,7 @@ function Button(props) {
   const [pressed, setPressed] = useState(false);
   const checkTranslation = () => {
     setPressed(true)
-    props.numberChange();
+    props.numberChange && props.numberChange();
   }
 
   return (

@@ -12,7 +12,7 @@ const Tbody = () => {
 
         < tbody >
             {
-                words.map((word) =>
+                value.words.map((word) =>
                     <TableString
                         id={word.id}
                         english={word.english}
