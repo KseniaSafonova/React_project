@@ -6,7 +6,7 @@ import './App.module.css';
 import { Table } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Thead from './components/Table/Thead';
-import Tbody from './components/Table/Tbody';
+import TableBody from './components/Table/TableBody';
 import styles from './components/Navbar/Navbar.module.css'
 import style from './components/Header/Header.module.css'
 import image from './components/Header/logo.svg'
@@ -69,7 +69,7 @@ class App extends React.Component {
               <Route path='/'>
                 <Table striped bordered hover>
                   <Thead />
-                  <Tbody />
+                  <TableBody />
                 </Table>
               </Route>
               <Route>

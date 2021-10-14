@@ -1,9 +1,9 @@
 import TableString from "./TableString";
 import React, { useContext } from "react";
-import Context from './../../Context'
+import Context from '../../Context'
 
 
-const Tbody = () => {
+const TableBody = () => {
 
     const value = useContext(Context);
 
@@ -23,4 +23,4 @@ const Tbody = () => {
 }
 
 
-export default Tbody;
+export default TableBody;
