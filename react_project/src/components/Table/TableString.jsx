@@ -1,6 +1,7 @@
 import styles from './Table.module.css';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
+import Context from './../../Context'
 
 function TableString(word) {
     const [isSelected, changeSelected] = useState(false);
@@ -9,6 +10,8 @@ function TableString(word) {
     const [valueTr, changeValueTr] = useState(word.transcription);
     const [valueRus, changeValueRus] = useState(word.russian);
     const [valueTag, changeValueTag] = useState(word.tags);
+
+
 
     /*const [value, setValue] = useState({
         english: word.english,
@@ -22,16 +25,28 @@ function TableString(word) {
     }
     */
 
-    const handleCancel = (word) => {
+    const handleCancel = () => {
         return (
             changeSelected(!isSelected)
         )
     }
 
+    const handleDelete = (id) => {
+
+        fetch(`/api/words/${id}/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+            .then((response) => response.json())
+            .then((response) => this.setState({ words: response, isLoading: false }))
+    }
+
+    const value = useContext(Context);
 
     return (
         <tr>
-            <td>{word.id}</td>
             <td>{
                 isSelected
                     ? <input onChange={(val) => changeValueEng(val.target.value)} value={valueEng}></input>
@@ -62,7 +77,7 @@ function TableString(word) {
                         </p>
                         : <p>
                             <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
-                            <Button variant="danger" className={styles.button}>Delete</Button>
+                            <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button>
                         </p>
                 }
 

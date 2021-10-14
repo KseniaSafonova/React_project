@@ -2,7 +2,6 @@ function Thead() {
     return (
         <thead>
             <tr>
-                <th>ID</th>
                 <th>English</th>
                 <th>Transcription</th>
                 <th>Russian</th>

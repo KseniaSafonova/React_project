@@ -6,10 +6,8 @@ import Context from './../../Context'
 const Tbody = () => {
 
     const value = useContext(Context);
-    console.log(value)
 
     return (
-
         < tbody >
             {
                 value.words.map((word) =>
@@ -21,10 +19,6 @@ const Tbody = () => {
                         tags={word.tags} />)
             }
         </tbody >
-
-
-
-
     )
 }
 
