@@ -3,13 +3,15 @@ import { useContext, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import Context from './../../Context'
 
-function TableString(word) {
+function TableString(props) {
     const [isSelected, changeSelected] = useState(false);
 
-    const [valueEng, changeValueEng] = useState(word.english);
-    const [valueTr, changeValueTr] = useState(word.transcription);
-    const [valueRus, changeValueRus] = useState(word.russian);
-    const [valueTag, changeValueTag] = useState(word.tags);
+    const id = props.id;
+
+    const [valueEng, changeValueEng] = useState(props.english);
+    const [valueTr, changeValueTr] = useState(props.transcription);
+    const [valueRus, changeValueRus] = useState(props.russian);
+    const [valueTag, changeValueTag] = useState(props.tags);
 
 
 
