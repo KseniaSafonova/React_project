@@ -48,50 +48,51 @@ function TableString(props) {
                     throw new Error('Oops! Something went wrong!');
                 }
             })
-
-        const value = useContext(Context);
-
-        return (
-            <tr>
-                <td>{
-                    isSelected
-                        ? <input onChange={(val) => changeValueEng(val.target.value)} value={valueEng}></input>
-                        : <td>{valueEng}</td>
-                }
-                </td>
-                <td>{
-                    isSelected
-                        ? <input onChange={(val) => changeValueTr(val.target.value)} value={valueTr}></input>
-                        : <td>{valueTr}</td>
-                }</td>
-                <td>{
-                    isSelected
-                        ? <input onChange={(val) => changeValueRus(val.target.value)} value={valueRus}></input>
-                        : <td>{valueRus}</td>
-                }</td>
-                <td>{
-                    isSelected
-                        ? <input onChange={(val) => changeValueTag(val.target.value)} value={valueTag}></input>
-                        : <td>{valueTag}</td>
-                }</td>
-                <td>
-                    {
-                        isSelected
-                            ? <p>
-                                <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
-                                <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
-                            </p>
-                            : <p>
-                                <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
-                                <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button>
-                            </p>
-                    }
-
-                </td >
-            </tr >
-        )
     }
+
+    const value = useContext(Context);
+
+    return (
+        <tr>
+            <td>{
+                isSelected
+                    ? <input onChange={(val) => changeValueEng(val.target.value)} value={valueEng}></input>
+                    : <td>{valueEng}</td>
+            }
+            </td>
+            <td>{
+                isSelected
+                    ? <input onChange={(val) => changeValueTr(val.target.value)} value={valueTr}></input>
+                    : <td>{valueTr}</td>
+            }</td>
+            <td>{
+                isSelected
+                    ? <input onChange={(val) => changeValueRus(val.target.value)} value={valueRus}></input>
+                    : <td>{valueRus}</td>
+            }</td>
+            <td>{
+                isSelected
+                    ? <input onChange={(val) => changeValueTag(val.target.value)} value={valueTag}></input>
+                    : <td>{valueTag}</td>
+            }</td>
+            <td>
+                {
+                    isSelected
+                        ? <p>
+                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
+                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
+                        </p>
+                        : <p>
+                            <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
+                            <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button>
+                        </p>
+                }
+
+            </td >
+        </tr >
+    )
 }
+
 
 
 export default TableString;
