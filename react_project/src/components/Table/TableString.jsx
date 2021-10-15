@@ -33,7 +33,7 @@ function TableString(props) {
         )
     }
 
-    const handleDelete = (id) => {
+    const handleDelete = (id, props) => {
 
         fetch(`/api/words/${id}/delete`, {
             method: 'POST',
@@ -48,6 +48,7 @@ function TableString(props) {
                     throw new Error('Oops! Something went wrong!');
                 }
             })
+        //.then((response) => { props.loadWords() });
     }
 
     const value = useContext(Context);

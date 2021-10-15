@@ -32,9 +32,15 @@ class App extends React.Component {
     }
   }
 
+
+
+
   componentDidMount() {
     this.setState({ isLoading: true });
+    this.loadWords();
+  }
 
+  loadWords = () => {
     fetch('/api/words')
       .then(response => {
         if (response.ok) {
@@ -43,12 +49,7 @@ class App extends React.Component {
           throw new Error('Oops! Something went wrong!');
         }
       })
-      .then((response) => {
-        this.setState({
-          words: response,
-          isLoading: false,
-        })
-      })
+      .then((response) => { this.setState({ words: response, isLoading: false, }) })
       .catch(error => this.setState({ error, isLoading: false }));
   }
 
