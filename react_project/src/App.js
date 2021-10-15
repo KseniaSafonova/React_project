@@ -27,21 +27,39 @@ class App extends React.Component {
     super(props);
     this.state = {
       words: [],
-      isLoading: false
+      isLoading: false,
+      error: null
     }
   }
 
   componentDidMount() {
-    this.setState({ isLoading: true })
+    this.setState({ isLoading: true });
 
     fetch('/api/words')
-      .then((response) => response.json())
-      .then((response) => this.setState({ words: response, isLoading: false }))
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Oops! Something went wrong!');
+        }
+      })
+      .then((response) => {
+        this.setState({
+          words: response,
+          isLoading: false,
+        })
+      })
+      .catch(error => this.setState({ error, isLoading: false }));
+  }
+
+
+  if(error) {
+    return <p>{error.message}</p>;
   }
 
   render() {
-    const { words } = this.state
-    const { isLoading } = this.state
+    const { words, isLoading } = this.state
+
 
     if (isLoading) {
       return <p>Loading...</p>
