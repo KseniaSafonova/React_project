@@ -4,28 +4,29 @@ import { Button } from 'react-bootstrap';
 import Context from './../../Context'
 
 function TableString(props) {
+    const { id } = props;
     const [isSelected, changeSelected] = useState(false);
 
-    const id = props.id;
+    //const id = id;
 
-    const [valueEng, changeValueEng] = useState(props.english);
-    const [valueTr, changeValueTr] = useState(props.transcription);
-    const [valueRus, changeValueRus] = useState(props.russian);
-    const [valueTag, changeValueTag] = useState(props.tags);
+    /* const [valueEng, changeValueEng] = useState(props.english);
+     const [valueTr, changeValueTr] = useState(props.transcription);
+     const [valueRus, changeValueRus] = useState(props.russian);
+     const [valueTag, changeValueTag] = useState(props.tags);*/
 
 
 
-    /*const [value, setValue] = useState({
-        english: word.english,
-        transcription: word.transcription,
-        russian: word.russian,
-        tag: word.tag
+    const [value, setValue] = useState({
+        english: props.english,
+        transcription: props.transcription,
+        russian: props.russian,
+        tag: props.tag
     });
-    
-    const changeValue = (e) => {
-        setValue({...value, [e.target.name] : e.target.value})
+
+    const handleChange = (e) => {
+        setValue({ ...value, [e.target.name]: e.target.value })
     }
-    */
+
 
     const handleCancel = () => {
         return (
@@ -51,30 +52,30 @@ function TableString(props) {
         //.then((response) => { props.loadWords() });
     }
 
-    const value = useContext(Context);
+    const valuee = useContext(Context);
 
     return (
         <tr>
             <td>{
                 isSelected
-                    ? <input onChange={(val) => changeValueEng(val.target.value)} value={valueEng}></input>
-                    : <td>{valueEng}</td>
+                    ? <input onChange={handleChange} name={'english'} value={value.english}></input>
+                    : <td>{value.english}</td>
             }
             </td>
             <td>{
                 isSelected
-                    ? <input onChange={(val) => changeValueTr(val.target.value)} value={valueTr}></input>
-                    : <td>{valueTr}</td>
+                    ? <input onChange={handleChange} name={'transcription'} value={value.transcription}></input>
+                    : <td>{value.transcription}</td>
             }</td>
             <td>{
                 isSelected
-                    ? <input onChange={(val) => changeValueRus(val.target.value)} value={valueRus}></input>
-                    : <td>{valueRus}</td>
+                    ? <input onChange={handleChange} name={'russian'} value={value.russian}></input>
+                    : <td>{value.russian}</td>
             }</td>
             <td>{
                 isSelected
-                    ? <input onChange={(val) => changeValueTag(val.target.value)} value={valueTag}></input>
-                    : <td>{valueTag}</td>
+                    ? <input onChange={handleChange} name={'tag'} value={value.tag}></input>
+                    : <td>{value.tag}</td>
             }</td>
             <td>
                 {

@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AASA,AAAA,MAAM,CAAC;EACP,KAAK,EAPI,OAAO;EAQhB,UAAU,EAAE,MAAM;EAClB,SAAS,EALD,IAAI;EAMZ,MAAM,EAAE,IAAI;CACX;;AAED,AAAA,SAAS,CAAC;EACN,KAAK,EAAC,GAAG;CACZ",
+    "mappings": "AAEA,AAAA,MAAM,CAAC;EACP,KAAK,ECAI,OAAO;EDChB,UAAU,EAAE,MAAM;EAClB,SAAS,ECED,IAAI;EDDZ,MAAM,EAAE,IAAI;CACX;;AAED,AAAA,SAAS,CAAC;EACN,KAAK,EAAC,GAAG;CACZ",
     "sources": [
-        "Error.module.scss"
+        "Error.module.scss",
+        "../Colors_Fonts/Assets.module.scss"
     ],
     "names": [],
     "file": "Error.module.css"

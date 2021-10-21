@@ -1,11 +1,4 @@
-$lightGray: #D5D6D2;
-$darkGray: #353C3F;
-$brown: #756867;
-$orange: #FF8D3F;
-
-$fontS: 16px;
-$fontM: 20px;
-$fontL: 28px;
+@import './../Colors_Fonts/Assets.module.scss';
 
 .error {
 color: $orange;
