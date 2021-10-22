@@ -30,7 +30,8 @@ function TableString(props) {
 
     const handleCancel = () => {
         return (
-            changeSelected(!isSelected)
+            changeSelected(!isSelected),
+            setValue({ ...props })
         )
     }
 
