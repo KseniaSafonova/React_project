@@ -12,7 +12,7 @@ const TableBody = () => {
 
     return (
         < tbody >
-            <AddWord></AddWord>
+            <AddWord />
             {
                 value.words.map((word) =>
                     <TableString

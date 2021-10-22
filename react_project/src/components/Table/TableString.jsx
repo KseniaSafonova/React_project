@@ -55,29 +55,51 @@ function TableString(props) {
 
     const valuee = useContext(Context);
 
+    const Input = () => {
+        return (
+            <input></input>
+        )
+    }
+
+    const columns = ['english', 'transcription', 'russian', 'tags']
+
     return (
         <tr>
-            <td>{
-                isSelected
-                    ? <input onChange={handleChange} name={'english'} value={value.english}></input>
-                    : <td>{value.english}</td>
+
+
+            {
+                columns.map(word => {
+                    return (
+                        <Input onChange={handleChange} name={word} value={value[word]} />
+                    )
+                })
+
             }
-            </td>
-            <td>{
+            {/* {
                 isSelected
-                    ? <input onChange={handleChange} name={'transcription'} value={value.transcription}></input>
-                    : <td>{value.transcription}</td>
-            }</td>
-            <td>{
-                isSelected
-                    ? <input onChange={handleChange} name={'russian'} value={value.russian}></input>
-                    : <td>{value.russian}</td>
-            }</td>
-            <td>{
-                isSelected
-                    ? <input onChange={handleChange} name={'tag'} value={value.tag}></input>
-                    : <td>{value.tag}</td>
-            }</td>
+                    ?
+                    (<>
+                        <td>
+                            <input onChange={handleChange} name={'english'} value={value.english}></input>
+                        </td>
+                        <td>
+                            <input onChange={handleChange} name={'transcription'} value={value.transcription}></input>
+                        </td>
+                        <td>
+                            <input onChange={handleChange} name={'russian'} value={value.russian}></input>
+                        </td>
+                        <td>
+                            <input onChange={handleChange} name={'tags'} value={value.tags}></input>
+                        </td></>
+                    )
+                    : (<>
+                        <td>{value.english}</td>
+                        <td>{value.transcription}</td>
+                        <td>{value.russian}</td>
+                        <td>{value.tags}</td>
+                    </>)
+            }*/}
+
             <td>
                 {
                     isSelected
