@@ -35,7 +35,7 @@ function TableString(props) {
         )
     }
 
-    const handleDelete = (id, props) => {
+    const handleDelete = (id) => {
 
         fetch(`/api/words/${id}/delete`, {
             method: 'POST',
@@ -64,18 +64,39 @@ function TableString(props) {
     const columns = ['english', 'transcription', 'russian', 'tags']
 
     return (
-        <tr>
-
-
+        < tr >
             {
-                columns.map(word => {
-                    return (
-                        <Input onChange={handleChange} name={word} value={value[word]} />
-                    )
-                })
 
+                isSelected
+                    ? (
+                        <>
+                            {
+                                columns.map(word => {
+                                    return (
+                                        <>
+                                            <td> <Input onChange={handleChange} name={word} value={value[word]} /></td>
+                                        </>
+                                    )
+                                })
+
+                            }
+                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
+                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
+                        </>
+                    ) : (
+                        <>
+                            <td>{value.english}</td>
+                            <td>{value.transcription}</td>
+                            <td>{value.russian}</td>
+                            <td>{value.tags}</td>
+                            <td><Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
+                                <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button></td>
+                        </>)
             }
-            {/* {
+        </tr >
+    )
+
+    {/* {
                 isSelected
                     ?
                     (<>
@@ -90,32 +111,22 @@ function TableString(props) {
                         </td>
                         <td>
                             <input onChange={handleChange} name={'tags'} value={value.tags}></input>
-                        </td></>
+                        </td>
+                        <td>
+                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
+                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
+                        </td>
+                        </>
                     )
                     : (<>
                         <td>{value.english}</td>
                         <td>{value.transcription}</td>
                         <td>{value.russian}</td>
                         <td>{value.tags}</td>
+                        <td><Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
+                            <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button></td>
                     </>)
             }*/}
-
-            <td>
-                {
-                    isSelected
-                        ? <p>
-                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
-                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
-                        </p>
-                        : <p>
-                            <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
-                            <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button>
-                        </p>
-                }
-
-            </td >
-        </tr >
-    )
 }
 
 
