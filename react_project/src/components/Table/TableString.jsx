@@ -23,8 +23,18 @@ function TableString(props) {
         tag: props.tag
     });
 
+    const [error, setError] = useState({
+        english: props.english,
+        transcription: props.transcription,
+        russian: props.russian,
+        tag: props.tag
+    });
+
+
+
     const handleChange = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value })
+        setValue({ ...error, [e.target.name]: e.target.value.trim() })
     }
 
 
@@ -50,7 +60,6 @@ function TableString(props) {
                     throw new Error('Oops! Something went wrong!');
                 }
             })
-        //.then((response) => { props.loadWords() });
     }
 
     const valuee = useContext(Context);
@@ -74,7 +83,7 @@ function TableString(props) {
                                 columns.map(word => {
                                     return (
                                         <>
-                                            <td> <Input onChange={handleChange} name={word} value={value[word]} /></td>
+                                            <td> <Input onChange={handleChange} name={word} value={word.value} className={error.name ? styles.inputError : ''} /></td>
                                         </>
                                     )
                                 })

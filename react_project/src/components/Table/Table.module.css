@@ -1,4 +1,8 @@
 .button {
   margin-right: 10px;
 }
+
+.inputError {
+  border: 1px solid red;
+}
 /*# sourceMappingURL=Table.module.css.map */

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,YAAY,EAAE,IAAI;CACnB",
+    "mappings": "AAAA,AAAA,OAAO,CAAA;EACH,YAAY,EAAE,IAAI;CACnB;;AAED,AAAA,WAAW,CAAC;EACV,MAAM,EAAE,aAAa;CACtB",
     "sources": [
         "Table.module.scss"
     ],
