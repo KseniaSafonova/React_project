@@ -7,15 +7,6 @@ function TableString(props) {
     const { id } = props;
     const [isSelected, changeSelected] = useState(false);
 
-    //const id = id;
-
-    /* const [valueEng, changeValueEng] = useState(props.english);
-     const [valueTr, changeValueTr] = useState(props.transcription);
-     const [valueRus, changeValueRus] = useState(props.russian);
-     const [valueTag, changeValueTag] = useState(props.tags);*/
-
-
-
     const [value, setValue] = useState({
         english: props.english,
         transcription: props.transcription,
@@ -24,17 +15,17 @@ function TableString(props) {
     });
 
     const [error, setError] = useState({
-        english: props.english,
-        transcription: props.transcription,
-        russian: props.russian,
-        tag: props.tag
+        english: false,
+        transcription: false,
+        russian: false,
+        tag: false
     });
 
 
 
     const handleChange = (e) => {
         setValue({ ...value, [e.target.name]: e.target.value })
-        setValue({ ...error, [e.target.name]: e.target.value.trim() })
+        setError({ ...error, [e.target.name]: !e.target.value.trim() })
     }
 
 
@@ -64,9 +55,10 @@ function TableString(props) {
 
     const valuee = useContext(Context);
 
-    const Input = () => {
+    const Input = ({ onChange, name, value }) => {
+
         return (
-            <input></input>
+            <input value={value} name={name} onChange={onChange}></input>
         )
     }
 
@@ -83,7 +75,7 @@ function TableString(props) {
                                 columns.map(word => {
                                     return (
                                         <>
-                                            <td> <Input onChange={handleChange} name={word} value={word.value} className={error.name ? styles.inputError : ''} /></td>
+                                            <td> <Input onChange={handleChange} name={word} value={value[word]} className={error.value ? styles.inputError : ''} /></td>
                                         </>
                                     )
                                 })
@@ -104,40 +96,6 @@ function TableString(props) {
             }
         </tr >
     )
-
-    {/* {
-                isSelected
-                    ?
-                    (<>
-                        <td>
-                            <input onChange={handleChange} name={'english'} value={value.english}></input>
-                        </td>
-                        <td>
-                            <input onChange={handleChange} name={'transcription'} value={value.transcription}></input>
-                        </td>
-                        <td>
-                            <input onChange={handleChange} name={'russian'} value={value.russian}></input>
-                        </td>
-                        <td>
-                            <input onChange={handleChange} name={'tags'} value={value.tags}></input>
-                        </td>
-                        <td>
-                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
-                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
-                        </td>
-                        </>
-                    )
-                    : (<>
-                        <td>{value.english}</td>
-                        <td>{value.transcription}</td>
-                        <td>{value.russian}</td>
-                        <td>{value.tags}</td>
-                        <td><Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
-                            <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button></td>
-                    </>)
-            }*/}
 }
-
-
 
 export default TableString;

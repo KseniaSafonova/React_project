@@ -9,7 +9,7 @@ const CardShell = ({ wordCount, numberChange, showNext, showPrevious, number, da
 
     return (
         <React.Fragment>
-            <div className={styles.count}>Изучено {wordCount} слов</div>
+            <div className={styles.count}>Изучено слов: {wordCount} </div>
             <div className={styles.block}>
                 <button className={styles.button} onClick={showPrevious}>Back</button>
                 <Card
