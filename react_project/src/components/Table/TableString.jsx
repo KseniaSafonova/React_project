@@ -81,8 +81,9 @@ function TableString(props) {
                                 })
 
                             }
-                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
-                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
+                            <td>
+                                <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
+                                <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button></td>
                         </>
                     ) : (
                         <>
