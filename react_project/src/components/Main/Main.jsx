@@ -1,17 +1,17 @@
 import Card from '../Card/Card';
 import Button from '../Card/Button';
-import { words } from '../../App';
+//import { words } from '../../App';
 import styles from './Main.module.css'
+import { observer, inject } from 'mobx-react'
 
 
 
 
-
-function Main(props) {
+const Main = inject(['WordsStore'])(observer(({ WordsStore }) => {
     return (
         <div className={styles.main}>
             {
-                words.map((word) => <Card
+                WordsStore.words.map((word) => <Card
                     english={word.english}
                     transcription={word.transcription}>
                     <Button russian={word.russian} />
@@ -20,6 +20,6 @@ function Main(props) {
 
         </div >
     )
-}
+}))
 
 export default Main;
