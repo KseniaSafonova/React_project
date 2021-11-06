@@ -21,13 +21,13 @@ class WordsStore {
                 }
             })
             .then((response) => {
-                this.words = response,
-                    this.isLoading = false
+                this.words = response
+                this.isLoading = false
             })
 
             .catch(error => {
-                this.error = error,
-                    this.isLoading = false
+                this.error = error
+                this.isLoading = false
             });
     }
 
