@@ -13,7 +13,7 @@ import style from './components/Header/Header.module.css'
 import image from './components/Header/logo.svg'
 import Error from './components/Error/Error';
 import Game from './components/Game/Game';
-import WordsStore from "./stores/WordsStore";
+import store from "./store";
 import {
   BrowserRouter,
   Switch,
@@ -21,14 +21,10 @@ import {
   Link
 } from "react-router-dom";
 
-const stores = {
-  WordsStore: new WordsStore()
-}
-
 
 function App() {
   return (
-    <Provider {...stores}>
+    <Provider {...store}>
       <BrowserRouter>
         <div className="App">
 
@@ -46,12 +42,12 @@ function App() {
               <Main />
             </Route>
             <Route path='/game'>
-              <Game data={WordsStore.words} />
+              <Game />
             </Route>
             <Route path='/'>
               <Table striped bordered hover>
                 <Thead />
-                <Tbody words={WordsStore.words} />
+                <Tbody />
               </Table>
             </Route>
             <Route>

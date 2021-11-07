@@ -1,68 +1,105 @@
 import styles from './Table.module.css';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { observer, inject } from 'mobx-react';
 
-function TableString(word) {
+function TableString(props) {
+    const { id } = props;
     const [isSelected, changeSelected] = useState(false);
 
-    const [valueEng, changeValueEng] = useState(word.english);
-    const [valueTr, changeValueTr] = useState(word.transcription);
-    const [valueRus, changeValueRus] = useState(word.russian);
-    const [valueTag, changeValueTag] = useState(word.tags);
+    const [value, setValue] = useState({
+        english: props.english,
+        transcription: props.transcription,
+        russian: props.russian,
+        tag: props.tag
+    });
 
-    /*const [value, changeValue] = useState({
-        english: word.english,
-        transcription: word.transcription,
-        russian: word.russian,
-        tag: word.tag
-    });*/
+    const [error, setError] = useState({
+        english: false,
+        transcription: false,
+        russian: false,
+        tag: false
+    });
 
-    const handleCancel = (word) => {
-        return (
-            changeSelected(!isSelected)
-        )
+
+
+    const handleChange = (e) => {
+        setValue({ ...value, [e.target.name]: e.target.value })
+        setError({ ...error, [e.target.name]: !e.target.value.trim() })
     }
 
 
-    return (
-        <tr>
-            <td>{word.id}</td>
-            <td>{
-                isSelected
-                    ? <input onChange={(val) => changeValueEng(val.target.value)} value={valueEng}></input>
-                    : <td>{valueEng}</td>
-            }
-            </td>
-            <td>{
-                isSelected
-                    ? <input onChange={(val) => changeValueTr(val.target.value)} value={valueTr}></input>
-                    : <td>{valueTr}</td>
-            }</td>
-            <td>{
-                isSelected
-                    ? <input onChange={(val) => changeValueRus(val.target.value)} value={valueRus}></input>
-                    : <td>{valueRus}</td>
-            }</td>
-            <td>{
-                isSelected
-                    ? <input onChange={(val) => changeValueTag(val.target.value)} value={valueTag}></input>
-                    : <td>{valueTag}</td>
-            }</td>
-            <td>
-                {
-                    isSelected
-                        ? <p>
-                            <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}> Save</Button>
-                            <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button>
-                        </p>
-                        : <Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
-                }
+    const handleCancel = () => {
+        return (
+            changeSelected(!isSelected),
+            setValue({ ...props })
+        )
+    }
 
-            </td >
+    const handleDelete = (id) => {
+
+        fetch(`/api/words/${id}/delete`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            }
+        })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Oops! Something went wrong!');
+                }
+            })
+    }
+
+
+
+    const Input = ({ onChange, name, value }) => {
+
+        return (
+            <input value={value} name={name} onChange={onChange}></input>
+        )
+    }
+
+    const columns = ['english', 'transcription', 'russian', 'tags']
+
+    return (
+        < tr >
+            {
+
+                isSelected
+                    ? (
+                        <>
+                            {
+                                columns.map(word => {
+                                    return (
+                                        <>
+                                            <td> <Input onChange={handleChange} name={word} value={value[word]} className={error.value ? styles.inputError : ''} /></td>
+                                        </>
+                                    )
+                                })
+
+                            }
+                            <td>
+                                <Button variant="success" className={styles.button} onClick={() => { changeSelected(false) }}>Save</Button>
+                                <Button variant="danger" className={styles.button} onClick={handleCancel}>Cancel</Button></td>
+                        </>
+                    ) : (
+                        <>
+                            <td>{value.english}</td>
+                            <td>{value.transcription}</td>
+                            <td>{value.russian}</td>
+                            <td>{value.tags}</td>
+                            <td><Button variant="warning" className={styles.button} onClick={() => { changeSelected(true) }}>Edit</Button>
+                                <Button variant="danger" className={styles.button} onClick={() => handleDelete(id)}>Delete</Button></td>
+                        </>)
+            }
         </tr >
     )
 }
 
-
-
-export default TableString;
+export default inject(({ WordsStore }) => {
+    const { words } = WordsStore;
+    return { words };
+})(observer(TableString));

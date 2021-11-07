@@ -1,6 +1,5 @@
 import TableString from "./TableString";
-import words from "../../stores/WordsStore"
-
+import { observer, inject } from 'mobx-react';
 
 function Tbody({ words }) {
     return (
@@ -13,4 +12,7 @@ function Tbody({ words }) {
     );
 }
 
-export default Tbody;
+export default inject(({ WordsStore }) => {
+    const { words } = WordsStore;
+    return { words };
+})(observer(Tbody));
