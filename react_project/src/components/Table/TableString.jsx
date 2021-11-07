@@ -99,7 +99,4 @@ function TableString(props) {
     )
 }
 
-export default inject(({ WordsStore }) => {
-    const { words } = WordsStore;
-    return { words };
-})(observer(TableString));
+export default TableString;

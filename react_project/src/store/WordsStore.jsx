@@ -1,17 +1,16 @@
-import { observable, action } from 'mobx';
-import { makeAutoObservable } from 'mobx';
-
+import { observable, action, makeAutoObservable } from 'mobx';
 
 class WordsStore {
-    @observable words = []
+    words = []
     isLoading = false
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    @action fetchWords = () => {
+    fetchWords = () => {
         this.isLoading = true;
+
         return fetch('/api/words')
             .then(response => {
                 if (response.ok) {
@@ -32,7 +31,7 @@ class WordsStore {
     }
 
 
-    @action addWord = (value) => {
+    addWord = (value) => {
 
         const newWord = {
             english: value.english,
@@ -63,6 +62,10 @@ class WordsStore {
                 this.isLoading = false
             });
     }
+
+    // deleteWords = () => {
+
+    // }
 }
 
 export default WordsStore;

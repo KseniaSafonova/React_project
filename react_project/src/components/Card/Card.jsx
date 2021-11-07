@@ -1,8 +1,7 @@
 
 import styles from './Card.module.css'
-import { observer, inject } from 'mobx-react';
 
-function Card({ props }) {
+function Card(props) {
 
     return (
         <div className={styles.element}>
