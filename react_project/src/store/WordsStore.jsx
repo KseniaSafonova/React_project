@@ -11,23 +11,28 @@ class WordsStore {
     fetchWords = () => {
         this.isLoading = true;
 
-        return fetch('/api/words')
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Oops! Something went wrong!');
-                }
-            })
-            .then((response) => {
-                this.words = response
-                this.isLoading = false
-            })
+        return fetch('https://itgirlschool.justmakeit.ru/api/words')
+            // .then(response => {
+            //     if (response.ok) {
+            //         return response.json();
+            //     } else {
+            //         throw new Error('Oops! Something went wrong!');
+            //     }
+            // })
 
-            .catch(error => {
-                this.error = error
-                this.isLoading = false
-            });
+            .then((response) => response.json())
+            .then((response) => { this.words = response })
+
+
+        // .then((response) => {
+        //     this.words = response
+        //     this.isLoading = false
+        // })
+
+        // .catch(error => {
+        //     this.error = error
+        //     this.isLoading = false
+        // });
     }
 
 

@@ -1,6 +1,6 @@
 {
   "name": "react_project",
-  "proxy": " http://itgirlschool.justmakeit.ru/api/words",
+  "proxy": "https://itgirlschool.justmakeit.ru/api/words",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
