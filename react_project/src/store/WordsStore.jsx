@@ -9,9 +9,9 @@ class WordsStore {
     }
 
     fetchWords = () => {
-        this.isLoading = true;
+        //this.isLoading = true;
 
-        return fetch('https://itgirlschool.justmakeit.ru/api/words')
+        fetch('api/words')
             // .then(response => {
             //     if (response.ok) {
             //         return response.json();
@@ -20,8 +20,8 @@ class WordsStore {
             //     }
             // })
 
-            .then((response) => response.json())
-            .then((response) => { this.words = response })
+            .then((response) => console.log(response.json()))
+        //.then((response) => { this.words = response })
 
 
         // .then((response) => {
