@@ -2,7 +2,7 @@
 import Card from '../Card/Card';
 import Button from '../Card/Button';
 import styles from './CardShell.module.css'
-import React, { useState } from 'react';
+import React from 'react';
 
 
 const CardShell = ({ wordCount, numberChange, showNext, showPrevious, number, data, dataLength }) => {

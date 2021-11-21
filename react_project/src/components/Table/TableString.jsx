@@ -3,15 +3,15 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { observer, inject } from 'mobx-react';
 
-function TableString(props) {
-    const { id } = props;
+function TableString({ words }) {
+    const { id } = words.id;
     const [isSelected, changeSelected] = useState(false);
 
     const [value, setValue] = useState({
-        english: props.english,
-        transcription: props.transcription,
-        russian: props.russian,
-        tag: props.tag
+        english: words.english,
+        transcription: words.transcription,
+        russian: words.russian,
+        tag: words.tag
     });
 
     const [error, setError] = useState({
@@ -32,7 +32,7 @@ function TableString(props) {
     const handleCancel = () => {
         return (
             changeSelected(!isSelected),
-            setValue({ ...props })
+            setValue({ ...words })
         )
     }
 
@@ -99,4 +99,8 @@ function TableString(props) {
     )
 }
 
-export default TableString;
+
+export default inject(({ WordsStore }) => {
+    const { words } = WordsStore;
+    return { words };
+})(observer(TableString));

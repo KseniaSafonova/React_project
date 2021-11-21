@@ -1,4 +1,4 @@
-import { observable, action, makeAutoObservable } from 'mobx';
+import { action, makeAutoObservable, observable } from 'mobx';
 
 class WordsStore {
     words = []
@@ -9,30 +9,29 @@ class WordsStore {
     }
 
     fetchWords = () => {
-        //this.isLoading = true;
+        this.isLoading = true;
 
-        fetch('api/words')
-            // .then(response => {
-            //     if (response.ok) {
-            //         return response.json();
-            //     } else {
-            //         throw new Error('Oops! Something went wrong!');
-            //     }
-            // })
+        fetch('/api/words')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Oops! Something went wrong!');
+                }
+            })
 
             .then((response) => console.log(response.json()))
-        //.then((response) => { this.words = response })
+            .then((response) => { this.words = response })
 
+            .then((response) => {
+                this.words = response
+                this.isLoading = false
+            })
 
-        // .then((response) => {
-        //     this.words = response
-        //     this.isLoading = false
-        // })
-
-        // .catch(error => {
-        //     this.error = error
-        //     this.isLoading = false
-        // });
+            .catch(error => {
+                this.error = error
+                this.isLoading = false
+            });
     }
 
 
