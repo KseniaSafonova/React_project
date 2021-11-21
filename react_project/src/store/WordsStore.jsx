@@ -20,7 +20,7 @@ class WordsStore {
                 }
             })
 
-            .then((response) => console.log(response.json()))
+            .then((response) => response.json())
             .then((response) => { this.words = response })
 
             .then((response) => {
