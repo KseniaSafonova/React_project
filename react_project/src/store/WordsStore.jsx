@@ -12,7 +12,7 @@ export default class WordsStore {
 
         this.isLoading = true;
 
-        fetch('http://itgirlschool.justmakeit.ru/api/words')
+        fetch('/api/words')
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -25,15 +25,6 @@ export default class WordsStore {
                 this.words = response;
                 this.isLoading = false;
             })
-
-
-        // .then((response) => response.json())
-
-
-        // .then((response) => {
-        //     this.words = response
-        //     this.isLoading = false
-        // })
 
         // .catch(error => {
         //     this.error = error
