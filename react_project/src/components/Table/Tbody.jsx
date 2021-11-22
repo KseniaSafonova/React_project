@@ -1,5 +1,6 @@
 import TableString from "./TableString";
 import { observer, inject } from 'mobx-react';
+import { useEffect } from "react";
 
 function Tbody({ words }) {
     return (
@@ -13,6 +14,11 @@ function Tbody({ words }) {
 }
 
 export default inject(({ WordsStore }) => {
-    const { words } = WordsStore;
+    const { words, isLoaded, fetchWords } = WordsStore;
+    useEffect(() => {
+        if (!isLoaded) {
+            fetchWords()
+        }
+    })
     return { words };
 })(observer(Tbody));

@@ -8,11 +8,11 @@ export default class WordsStore {
         makeAutoObservable(this)
     }
 
-    fetchWords = () => {
+    fetchWords = async () => {
 
         this.isLoading = true;
 
-        fetch('/api/words')
+        await fetch('/api/words')
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -26,10 +26,10 @@ export default class WordsStore {
                 this.isLoading = false;
             })
 
-        // .catch(error => {
-        //     this.error = error
-        //     this.isLoading = false
-        // });
+            .catch(error => {
+                this.error = error
+                this.isLoading = false
+            });
     }
 
 
