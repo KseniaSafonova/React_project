@@ -1,18 +1,18 @@
 import { action, makeAutoObservable, observable } from 'mobx';
 
 export default class WordsStore {
-    words = []
+    words = [];
     isLoading = false
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    fetchWords = async () => {
+    fetchWords = () => {
 
         this.isLoading = true;
 
-        await fetch('/api/words')
+        fetch('/api/words')
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -30,6 +30,8 @@ export default class WordsStore {
                 this.error = error
                 this.isLoading = false
             });
+
+
     }
 
 

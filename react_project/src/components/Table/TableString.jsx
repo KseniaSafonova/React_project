@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { observer, inject } from 'mobx-react';
 
-function TableString({ words }) {
+export default function TableString({ words }) {
     const { id } = words.id;
     const [isSelected, changeSelected] = useState(false);
 
@@ -100,12 +100,12 @@ function TableString({ words }) {
 }
 
 
-export default inject(({ WordsStore }) => {
-    const { words, isLoaded, fetchWords } = WordsStore;
-    useEffect(() => {
-        if (!isLoaded) {
-            fetchWords()
-        }
-    })
-    return { words };
-})(observer(TableString));
+// export default inject(({ WordsStore }) => {
+//     const { words, isLoaded, fetchWords } = WordsStore;
+//     useEffect(() => {
+//         if (!isLoaded) {
+//             fetchWords()
+//         }
+//     })
+//     return { words };
+// })(observer(TableString));
