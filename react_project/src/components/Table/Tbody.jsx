@@ -1,7 +1,7 @@
 import TableString from "./TableString";
 import { observer, inject } from 'mobx-react';
 import { useEffect } from "react";
-import WordsStore from "../../store/WordsStore";
+
 
 const Tbody = inject(['WordsStore'])(observer(({ WordsStore }) => {
     const { words, isLoaded, fetchWords } = WordsStore;
@@ -11,7 +11,11 @@ const Tbody = inject(['WordsStore'])(observer(({ WordsStore }) => {
         }
     })
     console.log(WordsStore.words);
-    console.log(words)
+
+    let english = words.map(element => element.english);
+    const englishList = Object.keys(english);
+    console.log(englishList)
+
     // return { words };
 
     return (
